@@ -143,6 +143,11 @@ ylistaro$kuntaid <- 975
 df6 <- rbind(df5, luvia, lavia, koylio, nastola, tarvasjoki, hameenkoski, juankoski, maaninka, jalasjarvi, voyri, voyri0, toysa, rovaniemi, ylistaro)
 
 # Yassoa varten hajoitusmatriisi A:
+  
+# This code is a part of R implementation of Yasso07. The version is
+# based on matrix-version created by Jaakko Heikkinen with Matlab and
+# Yasso07 description by Tuomi & Liski 17.3.2008  (Yasso07.pdf)
+# Created by Taru Palosuo, Jaakko Heikkinen & Anu Akujärvi in December 2011
 
 #        7. Yasso07Parameters - these in the format applied in the fortran version, length 44
 Yasso07Parameters <- c(-0.7300,-5.8000,-0.2900,-0.031,0.4800,0.0100,0.8300,0.9900,0.0000,0.0100,0.0000,0.0000,0.0300,0.0000,0.0100,0.9200,0.0960,-0.0014,0.000000,0.000000,0.0000,0.0000,0.0000,0.0000,0.000000,-1.2100,0.000000,0.000000,0.000000,0.00000,0.00000,0.00000,0.000000,0.000000,-0.001700,0.004500,0.000000,0.000000,-1.7000,0.8600,-0.3060,0.0000,0.0000,0.0000)
