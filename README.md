@@ -15,15 +15,14 @@ Seuraavaksi lasketaan ilmastokausia, koska käytämme liukuvia keskiarvoja. Yass
 
 Jos haluaa laskea ilmastokausia ilman hajostusmatriisin laskemista, voi käyttää tiedostoa **laskeIlmastokausi.R**. Tämä koostaa kausittain ilmastoaineiston tiedostoihin. Tulosteena esim. ilmastokausi1971-2000.RData, jossa muuttujina: "kuntaid",  "annualMeanAmplitude", "annualPrecipitation", "annualMeanTemp"   
 
-Lopuksi ilmastokaudet säilötään yhteen tiedostoon Yasson ajamista varten. Aja **ilmastokaudet-Yassolle-yhdessa-tiedostossa.R**. Tulosteena ilmastokaudet2000-2020.RData.
+Lopuksi ilmastokaudet säilötään yhteen tiedostoon Yasson ajamista varten. Aja **ilmastokaudet-Yassolle-yhdessa-tiedostossa.R**. Tulosteena 
+ilmastokaudet2000-2020.RData, jossa vuosille 2019 ja 2020 on kopioitu ilmastokausi 1989-2018. Vuosi 2019 ja 2020 pitää tietysti sitten päivittää, kun 
+säädata on saatavilla.
 
-TODO: tee ilmastodata vuodelle 2019.
+Kun tarvitaan ilmastodata uudelle vuodelle, käytä **lisaaUusiVuosi.R**. Tämä hakee uuden vuoden datat Luken säätietokannasta.
 
-### Koko maan keskiarvot
+### Kuvia
 
-![Koko maan keskiarvot](kokoMaanKeskiarvot.pdf "Koko maan keskiarvot")
+Koko maan keskiarvot: kokoMaanKeskiarvot.pdf
 
-
-### Hajotuskerroin k liukuvana keskiarvona 
-
-![hajotuskerroin](decompositionRateCoef.pdf "Decomposition Coefficient Rates")
+Hajotuskerroin k liukuvana keskiarvona: decompositionRateCoef.pdf
