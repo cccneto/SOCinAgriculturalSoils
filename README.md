@@ -1,8 +1,17 @@
-# SOCinAgriculturalSoils
-TT-C projektiin liittyvät ilmastoaineiston kokoamiseen tarvittavat koodit ja ehkä myös Yasso-koodi myöhemmin.
+# SOC balance in mineral soils of arable land
+
+## YASSO-model for calculating farm level SOC in mineral soils
+
+### initialization of the carbon stock
+
+### simulation of the C balance from annual carbon input
+
+## Preparing the climate data for YASSO
+
+TT-C projektiin liittyvät ilmastoaineiston kokoamiseen tarvittavat koodit hakemistossa R-climate.
 
 
-Ensin ladataan Paitulista kuntien hallintorajat (MML) ja ilmastodataa (FMI) 10kmx10km hilassa: 
+Ensin ladataan Paitulista (https://paituli.csc.fi/download.html) kuntien hallintorajat (MML) ja ilmastodataa (FMI) 10kmx10km hilassa: 
  - 10km_daily_maximum_temperature
  - 10km_daily_minimum_temperature
  - 10km_monthly_precipitation
