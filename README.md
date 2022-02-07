@@ -30,8 +30,8 @@ säädata on saatavilla.
 
 Kun tarvitaan ilmastodata uudelle vuodelle, käytä **lisaaUusiVuosi.R**. Tämä hakee uuden vuoden datat Luken säätietokannasta.
 
-### Kuvia
+### Climate images
 
-Koko maan keskiarvot: kokoMaanKeskiarvot.pdf
+Koko maan keskiarvot: img/kokoMaanKeskiarvot.pdf
 
-Hajotuskerroin k liukuvana keskiarvona: decompositionRateCoef.pdf
+Hajotuskerroin k liukuvana keskiarvona: img/decompositionRateCoef.pdf
