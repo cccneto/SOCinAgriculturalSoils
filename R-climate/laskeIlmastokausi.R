@@ -18,7 +18,7 @@
 
 # editoi tähän tiedostopolku, josta löytyy kuntakohtaisesti tiedostoissa per vuosi 
 # annualPrecipitation, annualMeanTemp ja annualMinMaxTemp
-filepath <- "/Users/myliheik/Documents/ilmastoData/kuntakohtainen/"
+filepath <- "~/Documents/ilmastoData/kuntakohtainen/"
 setwd(filepath)
 
 laskeIlmastokausi = function(ilmastoMuuttuja, alku, loppu){

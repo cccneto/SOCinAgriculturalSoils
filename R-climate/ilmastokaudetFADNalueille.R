@@ -1,28 +1,35 @@
 ###################################
-# MY 1.10.2019
-# Lasketaan Yassoa varten hajoamismatriisi A per kunta
+# MY 1.10.2019 / 16.4.2021
+# Lasketaan Yassoa varten hajoamismatriisi A per FADN-alue
 # Säädatan yhdistämiseen
 # funktio laskeIlmastokausi laskee ilmastokausille keskiarvoja kunnittain
 # funktioon annetaan muuttujanimi, joko: 
 # "annualPrecipitation" : kauden keskiarvo vuotuisista kumulatiivisista sademääristä
 # "annualMeanTemp" : kauden keskiarvo vuotuisista lämpötilan keskiarvoista
-# tai "annualMinMaxTemp" : kauden keskiarvo vuotuisista lämpötilavaihteluista (Tmax-Tmin)/2 
+# tai "annualMinMaxTemp" : kauden keskiarvo kuukausien lämpötilavaihteluista (Tmax-Tmin)/2 
 # sekä alkuvuosi ja loppuvuosi
 # yksilöivä tunniste on kuntaid (vuoden 2017 kunnat)
 # otetaan mukaan myös muutamia puuttuvia kuntia
-# sitten lasketaan Yassoa varten hajoamismatriisi A per kunta
+# lasketaan kunnista keskiarvo FADN-alueittain
+# sitten lasketaan Yassoa varten hajoamismatriisi A per FADN-alue
 # tallennetaan pelkkä annualMeanAmplitude, annualPrecipitation, annualMeanTemp ja toiseen tiedostoon A-versioon hajoamismatriisi.
 
 library(dplyr)
 library(purrr)
 
-
-alkuvuodet <- 1971:1989
+alkuvuodet <- 1961:1991
+#alkuvuodet <- 1961:1970
+#alkuvuodet <- 1971:1989
+#alkuvuodet <- 1990:1991 # tässä lisätään vain yksi (uusi) vuosi
 ikkuna <- 29 # kuinka pitkän aikavälin ikkunaa tarkastellaan (vuosissa)
 
 inputfilepath <- "~/Documents/ilmastoData/kuntakohtainen/"
 outputpath <- "~/Documents/ilmastoData/fadnaluekohtainenIlmastokausi/"
 
+
+# luetaan taulukko, jossa kuntaa vastaavat fadn-alueet:
+kunta2fadn <- "../data/kuntafadn.csv"
+dfkunta2fadn <- read.csv(kunta2fadn)[-3]
 
 ##########################################
 ########### FUNKTIOT
@@ -141,13 +148,12 @@ ylistaro <- df5 %>% filter(kuntaid == 743)
 ylistaro$kuntaid <- 975
 
 df6 <- rbind(df5, luvia, lavia, koylio, nastola, tarvasjoki, hameenkoski, juankoski, maaninka, jalasjarvi, voyri, voyri0, toysa, rovaniemi, ylistaro)
+# haetaan kunnille fadn-aluekoodi:
+df60 <- merge(df6, dfkunta2fadn, by = "kuntaid")
+# ryhmitellään fadn-alueittain ja lasketaan keskiarvo:
+df6 <- df60 %>% group_by(fadn_alue) %>% summarise_each(mean) %>% select(-kuntaid)
 
 # Yassoa varten hajoitusmatriisi A:
-  
-# This code is a part of R implementation of Yasso07. The version is
-# based on matrix-version created by Jaakko Heikkinen with Matlab and
-# Yasso07 description by Tuomi & Liski 17.3.2008  (Yasso07.pdf)
-# Created by Taru Palosuo, Jaakko Heikkinen & Anu Akujärvi in December 2011
 
 #        7. Yasso07Parameters - these in the format applied in the fortran version, length 44
 Yasso07Parameters <- c(-0.7300,-5.8000,-0.2900,-0.031,0.4800,0.0100,0.8300,0.9900,0.0000,0.0100,0.0000,0.0000,0.0300,0.0000,0.0100,0.9200,0.0960,-0.0014,0.000000,0.000000,0.0000,0.0000,0.0000,0.0000,0.000000,-1.2100,0.000000,0.000000,0.000000,0.00000,0.00000,0.00000,0.000000,0.000000,-0.001700,0.004500,0.000000,0.000000,-1.7000,0.8600,-0.3060,0.0000,0.0000,0.0000)
@@ -183,11 +189,11 @@ ilmastoA <- df6 %>%
   mutate(k = pmap(list(T1, T2, T3, T4, annualPrecipitation), function(t1, t2, t3, t4, pr) alfa*mean(exp(beta1*c(t1, t2, t3, t4)+beta2*(c(t1, t2, t3, t4)^2))*(1-exp(gamma*pr)))
   ) ) %>% # matrix A follows:
   mutate(A = map(k, function(k) p%*%diag(k))) %>%
-  select(kuntaid, A)
+  select(fadn_alue, A)
 
 #### SAVE vain muuttujat kuntaid, annualMeanAmplitude, annualPrecipitation, annualMeanTemp:
 
-ilmasto <- df6 %>% select(kuntaid, annualMeanAmplitude, annualPrecipitation, annualMeanTemp)
+ilmasto <- df6 %>% select(fadn_alue, annualMeanAmplitude, annualPrecipitation, annualMeanTemp)
 
 save(ilmasto, file = output)
 

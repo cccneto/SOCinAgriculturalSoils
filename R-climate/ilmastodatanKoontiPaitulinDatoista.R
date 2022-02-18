@@ -12,13 +12,13 @@ kunnat2017_polku = "~/Documents/GISdata/mml/hallintorajat_milj_tk/2017"
 kunnat2017_shapefile = "kunnat_2017_milj" 
 
 # päivittäinen max lämpötila:
-filepathMax <- "/Users/myliheik/Documents/ilmastoData/ilmatiede/10km_daily_maximum_temperature/geotiff/daily_maximum_temperature_1961_2018_geotiff/"
+filepathMax <- "~/Documents/ilmastoData/ilmatiede/10km_daily_maximum_temperature/geotiff/daily_maximum_temperature_1961_2018_geotiff/"
 # päivittäinen min lämpötila:
-filepathMin <- "/Users/myliheik/Documents/ilmastoData/ilmatiede/10km_daily_minimum_temperature/geotiff/daily_minimum_temperature_1961_2018_geotiff/"
+filepathMin <- "~/Documents/ilmastoData/ilmatiede/10km_daily_minimum_temperature/geotiff/daily_minimum_temperature_1961_2018_geotiff/"
 # keskilämpötila:
-filepathMean <- "/Users/myliheik/Documents/ilmastoData/ilmatiede/10km_monthly_mean_temp/geotiff/monthly_mean_temp_1961_2018_geotiff/"
+filepathMean <- "~/Documents/ilmastoData/ilmatiede/10km_monthly_mean_temp/geotiff/monthly_mean_temp_1961_2018_geotiff/"
 # vuoden sadesumma:
-filepathPrec <- "/Users/myliheik/Documents/ilmastoData/ilmatiede/10km_monthly_precipitation/geotiff/monthly_precipitation_1961_2018_geotiff/"
+filepathPrec <- "~/Documents/ilmastoData/ilmatiede/10km_monthly_precipitation/geotiff/monthly_precipitation_1961_2018_geotiff/"
 
 alkuvuosi <- 1961
 loppuvuosi <- 2018
@@ -26,7 +26,7 @@ loppuvuosi <- 2018
 years <- alkuvuosi:loppuvuosi
 
 # tulostetiedostot hakemistoon:
-fp <- "/Users/myliheik/Documents/ilmastoData/kuntakohtainen/"
+fp <- "~/Documents/ilmastoData/kuntakohtainen/"
 
 library(raster)
 #library(foreach)

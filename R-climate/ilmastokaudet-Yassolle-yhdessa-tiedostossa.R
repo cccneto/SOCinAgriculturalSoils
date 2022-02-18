@@ -2,8 +2,7 @@
 # Lue kaikki ilmastokaudet ja tallenna yhteen tiedostoon:
 
 
-setwd("~/Documents/projektit/Hiilitase_Taloustohtoriin/HiilitaseR/R")
-files = list.files(path = "~/Documents/ilmastoData/kuntakohtainenIlmastokausi", pattern = "A.RData", full.names = TRUE)
+files = list.files(path = "~/Documents/ilmastoData/fadnaluekohtainenIlmastokausi", pattern = "A.RData", full.names = TRUE)
 perpos <- which(strsplit(files[1], "")[[1]]==".")
 
 load(files[1])
