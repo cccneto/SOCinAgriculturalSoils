@@ -20,13 +20,15 @@ Sitten ajetaan tiedosto **ilmastodatanKoontiPaitulinDatoista.R**. Tämä koostaa
 
 Muista alkuun editoida oikeat tiedostopolut, ja vuosiluvut alku ja loppu. Jos haluaa käyttää rinnakkaislaskentaa, editoi koneellesi sopiva ytimien määrä. 
 
-Seuraavaksi lasketaan ilmastokausia, koska käytämme liukuvia keskiarvoja. Yassoa varten ilmastodata jalostetaan hajotusmatriisiksi käyttäen Yasson parametreja. Aja **laskeIlmastokausi-Yassolle.R**. Tulosteena sekä tavallinen ilmastokausi esim. ilmastokausi1971-2000.RData, jossa muuttujina: "kuntaid",  "annualMeanAmplitude", "annualPrecipitation", "annualMeanTemp" että pelkkä hajotusmatriisi ilmastokausi1971-2000A.RData, muuttujina: "kuntaid", "A".
+Seuraavaksi lasketaan kuntakohtaisia ilmastokausia, koska käytämme liukuvia keskiarvoja. Yassoa varten ilmastodata jalostetaan hajotusmatriisiksi käyttäen Yasson parametreja. Aja **laskeIlmastokausi-Yassolle.R**. Tulosteena sekä tavallinen ilmastokausi esim. ilmastokausi1971-2000.RData, jossa muuttujina: "kuntaid",  "annualMeanAmplitude", "annualPrecipitation", "annualMeanTemp" että pelkkä hajotusmatriisi ilmastokausi1971-2000A.RData, muuttujina: "kuntaid", "A".
 
 Jos haluaa laskea ilmastokausia ilman hajostusmatriisin laskemista, voi käyttää tiedostoa **laskeIlmastokausi.R**. Tämä koostaa kausittain ilmastoaineiston tiedostoihin. Tulosteena esim. ilmastokausi1971-2000.RData, jossa muuttujina: "kuntaid",  "annualMeanAmplitude", "annualPrecipitation", "annualMeanTemp"   
 
 Lopuksi ilmastokaudet säilötään yhteen tiedostoon Yasson ajamista varten. Aja **ilmastokaudet-Yassolle-yhdessa-tiedostossa.R**. Tulosteena 
 ilmastokaudet2000-2020.RData, jossa vuosille 2019 ja 2020 on kopioitu ilmastokausi 1989-2018. Vuosi 2019 ja 2020 pitää tietysti sitten päivittää, kun 
 säädata on saatavilla.
+
+Jos tarvitaan FADN-aluekohtaisia ilmastokausia, käytä **ilmastokaudetFADNalueille.R** ja **ilmastokaudet-Yassolle-yhdessa-tiedostossa.R**, saadaan hajotusmatriisit, muuttujina: "fadn_alue", "A", "vuosi".
 
 Kun tarvitaan ilmastodata uudelle vuodelle, käytä **lisaaUusiVuosi.R**. Tämä hakee uuden vuoden datat Luken säätietokannasta.
 
